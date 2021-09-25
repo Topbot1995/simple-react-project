@@ -1,0 +1,50 @@
+$primary: blue;
+$secondary: red;
+
+.drop-it-wrap{
+    width: 100%;
+    border: 5px dashed #ececec;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    .loader{
+        display: none;
+    }
+    &.uploading{
+        .loader{
+            display: block;
+        }
+        .default{
+            display: none;
+        }
+    }
+    &.active{
+        border-color: $primary;
+    }
+    &:hover{
+        border: 5px dashed darken(#ececec, 10%);
+    }
+}
+.drop-it-input{
+    position: absolute;
+    top: -99999999px;
+}
+
+@keyframes disco {
+    0% {
+        background: $primary;
+    }
+    100% {
+        background: $secondary;
+    }
+}
+
+.batch {
+    cursor: crosshair;
+    &.uploading {
+        animation: disco .1s infinite alternate;
+    }
+    background: #ffffff;
+}
